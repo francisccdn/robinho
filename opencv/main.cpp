@@ -21,11 +21,25 @@ int main(void)
     }
 
     // Objetos para img em BRG e em HSV
-    Mat frameBRG, frameHSV, frameFilter;
+    Mat frameBRG, frameHSV, frameMask;
 
     // Range da cor que vai ser detectada
-    int RedLow[3]  = {170, 070, 000};
-    int RedHigh[3] = {179, 255, 255}; 
+    const int redLower[3] = {170, 070, 000};
+    const int redUpper[3] = {179, 255, 255};
+    
+    const int whiteLower[3] = {000, 000, 200};
+    const int whiteUpper[3] = {000, 050, 255};
+
+    int colorLower[3] = {0, 0, 0}, colorUpper[3] = {179, 255, 255};
+
+    // Barrinhas para escolher uma cor
+    namedWindow("Control", WINDOW_AUTOSIZE);
+    createTrackbar("LowH", "Control", &colorLower[0], 179); //Hue (0 - 179)
+    createTrackbar("HighH", "Control", &colorUpper[0], 179);
+    createTrackbar("LowS", "Control", &colorLower[1], 255); //Saturation (0 - 255)
+    createTrackbar("HighS", "Control", &colorUpper[1], 255);
+    createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
+    createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
     while(1)
     {
@@ -46,11 +60,13 @@ int main(void)
         cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV);
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(RedLow[0], RedLow[1], RedLow[2]), Scalar(RedHigh[0], RedHigh[1], RedHigh[2]), frameFilter);
+        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
+        erode(frameMask, frameMask, NULL);
+        dilate(frameMask, frameMask, NULL);
 
         // Exibir captura da camera com filtros
-        namedWindow("Filtered", WINDOW_AUTOSIZE);
-        imshow("Filtered", frameFilter);
+        namedWindow("Mask", WINDOW_AUTOSIZE);
+        imshow("Mask", frameMask);
 
         // Fecha o programa ao apertar qualquer tecla
         if(waitKey(30) != 255)
