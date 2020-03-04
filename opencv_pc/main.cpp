@@ -7,7 +7,7 @@
 using namespace cv;
 using namespace std;
 
-int main(void)
+int main(int argc, char **argv)
 {
     // Abrir a camera
     VideoCapture cap;
