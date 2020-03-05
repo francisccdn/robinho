@@ -11,11 +11,9 @@ using namespace std;
 int main(int argc, char **argv)
 {
     // Abrir a camera
-    VideoCapture cap;
-    const int deviceID = 0;
+    raspicam::RaspiCam_Cv cap;
 
-    cap.open(deviceID);
-    if(!cap.isOpened())
+    if(!cap.open())
     {
         cerr << "Couldn't open camera." << endl;
         return 1;
@@ -45,7 +43,8 @@ int main(int argc, char **argv)
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
-        cap.read(frameBRG);
+        cap.grab();
+        cap.retrieve(frameBRG);
 
         if(frameBRG.empty())
         {
@@ -70,7 +69,7 @@ int main(int argc, char **argv)
         imshow("Mask", frameMask);
 
         // Fecha o programa ao apertar qualquer tecla
-        if(waitKey(30) != 255)
+        if(waitKey(30) > 0)
         {
             cap.release();
             break;
