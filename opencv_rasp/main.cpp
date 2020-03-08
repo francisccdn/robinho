@@ -29,6 +29,9 @@ int main(int argc, char **argv)
     const int whiteLower[3] = {000, 000, 200};
     const int whiteUpper[3] = {000, 050, 255};
 
+    const int pinkLower[3] = {135, 120, 080};
+    const int pinkUpper[3] = {175, 255, 255};
+
     int colorLower[3] = {0, 0, 0}, colorUpper[3] = {179, 255, 255};
 
     // Barrinhas para escolher uma cor
