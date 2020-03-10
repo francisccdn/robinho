@@ -59,17 +59,6 @@ int main(int argc, char **argv)
     createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
     createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
-    int colorLower[3] = {0, 0, 0}, colorUpper[3] = {179, 255, 255};
-
-    // Barrinhas para escolher uma cor
-    namedWindow("Control", WINDOW_AUTOSIZE);
-    createTrackbar("LowH", "Control", &colorLower[0], 179); //Hue (0 - 179)
-    createTrackbar("HighH", "Control", &colorUpper[0], 179);
-    createTrackbar("LowS", "Control", &colorLower[1], 255); //Saturation (0 - 255)
-    createTrackbar("HighS", "Control", &colorUpper[1], 255);
-    createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
-    createTrackbar("HighV", "Control", &colorUpper[2], 255);
-
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
