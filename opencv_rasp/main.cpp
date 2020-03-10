@@ -35,17 +35,29 @@ int main(int argc, char **argv)
     }
 
     // Objetos para img em BRG e em HSV
-    Mat frameBRG, frameHSV, frameMask;
+    Mat frameBRG, frameHSV, frameMask;    
+    Mat frame;//Deletar na versao final (so serve pra mostrar no monitor)
 
     // Range da cor que vai ser detectada
-    const int redLower[3] = {170, 070, 000};
-    const int redUpper[3] = {179, 255, 255};
+    const int redLower[3] = {0, 150, 50};
+    const int redUpper[3] = {95, 220, 225};
     
-    const int whiteLower[3] = {000, 000, 200};
-    const int whiteUpper[3] = {000, 050, 255};
+    const int whiteLower[3] = {0, 0, 200};
+    const int whiteUpper[3] = {0, 50, 255};
 
-    const int pinkLower[3] = {135, 120, 080};
+    const int pinkLower[3] = {135, 120, 80};
     const int pinkUpper[3] = {175, 255, 255};
+
+    int colorLower[3] = {0, 0, 0}, colorUpper[3] = {179, 255, 255};
+
+    // Barrinhas para escolher uma cor
+    namedWindow("Control", WINDOW_AUTOSIZE);
+    createTrackbar("LowH", "Control", &colorLower[0], 179); //Hue (0 - 179)
+    createTrackbar("HighH", "Control", &colorUpper[0], 179);
+    createTrackbar("LowS", "Control", &colorLower[1], 255); //Saturation (0 - 255)
+    createTrackbar("HighS", "Control", &colorUpper[1], 255);
+    createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
+    createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
     int colorLower[3] = {0, 0, 0}, colorUpper[3] = {179, 255, 255};
 
