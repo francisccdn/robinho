@@ -4,10 +4,20 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <string>
 #include <iostream>
-#include "Target.h"
 
 using namespace cv;
 using namespace std;
+
+vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
+{
+    std::vector<cv::Point> b = v[0];
+    for(int i = 0; i < v.size(); i++)
+    {
+        if(cv::contourArea(b) < cv::contourArea(v[i]))    
+            b = v[i];
+    }
+    return b;
+}
 
 int main(int argc, char **argv)
 {
@@ -48,9 +58,6 @@ int main(int argc, char **argv)
     createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
     createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
-    // Objeto do objeto a ser buscado
-    Target obj;
-
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
@@ -73,32 +80,47 @@ int main(int argc, char **argv)
 
         // Exibir captura da camera com filtros -- Deletar na versao final
         namedWindow("Mask", WINDOW_AUTOSIZE);
-        imshow("Mask", frameMask);
+        cv::imshow("Mask", frameMask);
 
         // Encontra o contorno do Objetos
         vector<vector<Point>> contours;
         findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
-
+ 
         const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
-        const float catch_radius = 55; // Raio quando a distancia for a de ser pego pela garra
+        const float catch_radius[2] = {45, 60}; // Raio quando a distancia for a de ser pego pela garra
+        const float lim_front[2] = {500, 600}; // Limites do meio da tela (quando o objeto esta aqui, esta em frente ao carrinho)
+
+        vector<Point> obj;
+        Point2f center;
+        float radius;
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
-            if(!obj.findBestContour(contours))
-                cerr << "Couldnt find contour" << endl;
+            obj = findBestContour(contours);
+            minEnclosingCircle(obj, center, radius);
+            
+            string center_str = "Center: X = " + to_string(center.x) + " Y  = " + to_string(center.y); // Deletar na versao final
 
-            string center_str = "Center: X = " + to_string(obj.getX()) + " Y  = " + to_string(obj.getY());
-
-            if(obj.getRadius() > min_radius)
+            if(radius > min_radius)
             {
-                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2);
-                putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0));
+                circle(frame, center, radius, Scalar(0, 255, 255), 2); // Deletar na versao final
+                putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0)); // Deletar na versao final
 
-                if(obj.getRadius() == catch_radius)
+                /*if(catch_radius[0] <= radius && radius >= catch_radius[1])
                 {
                     // TODO - Mandar pra fpga q ta perto
-                }
+                }*/
             }
+/*
+            if(lim_front[0] <= center.x && center.x >= lim_front[1])
+            {
+                // TODO - Mandar pra fpga q o objeto ta em frente 
+            }
+            else
+            {
+                // TODO - Mandar pra fpga q n tem objeto em vista 
+            }
+  */          
         }
         else
         {
@@ -107,7 +129,7 @@ int main(int argc, char **argv)
         
         // Exibir captura da camera com circulo ao redor da bola -- Deletar na versao final
         namedWindow("Cam input", WINDOW_AUTOSIZE);
-        imshow("Cam input", frame);
+        cv::imshow("Cam input", frame);
 
         // Fecha o programa ao apertar qualquer tecla
         if(waitKey(30) != 255)

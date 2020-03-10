@@ -8,10 +8,20 @@ Usar a classe pode estra dificultando a filtragem da imagem
 #include <raspicam/raspicam_cv.h>
 #include <string>
 #include <iostream>
-#include "Target.h"
 
 using namespace cv;
 using namespace std;
+
+vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
+{
+    std::vector<cv::Point> b = v[0];
+    for(int i = 0; i < v.size(); i++)
+    {
+        if(cv::contourArea(b) < cv::contourArea(v[i]))    
+            b = v[i];
+    }
+    return b;
+}
 
 int main(int argc, char **argv)
 {
@@ -48,9 +58,6 @@ int main(int argc, char **argv)
     createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
     createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
-    // Objeto do objeto a ser buscado
-    Target obj;
-
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
@@ -84,25 +91,29 @@ int main(int argc, char **argv)
         const float catch_radius[2] = {45, 60}; // Raio quando a distancia for a de ser pego pela garra
         const float lim_front[2] = {500, 600}; // Limites do meio da tela (quando o objeto esta aqui, esta em frente ao carrinho)
 
+        vector<Point> obj;
+        Point2f center;
+        float radius;
+
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
-            if(!obj.findBestContour(contours))
-                cerr << "Couldnt find contour" << endl;
+            obj = findBestContour(contours);
+            minEnclosingCircle(obj, center, radius);
+            
+            string center_str = "Center: X = " + to_string(center.x) + " Y  = " + to_string(center.y); // Deletar na versao final
 
-            string center_str = "Center: X = " + to_string(obj.getX()) + " Y  = " + to_string(obj.getY()); // Deletar na versao final
-
-            if(obj.getRadius() > min_radius)
+            if(radius > min_radius)
             {
-                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2); // Deletar na versao final
+                circle(frame, center, radius, Scalar(0, 255, 255), 2); // Deletar na versao final
                 putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0)); // Deletar na versao final
 
-                if(catch_radius[0] <= obj.getRadius() && obj.getRadius() >= catch_radius[1])
+                /*if(catch_radius[0] <= radius && radius >= catch_radius[1])
                 {
                     // TODO - Mandar pra fpga q ta perto
-                }
+                }*/
             }
-
-            if(lim_front[0] <= obj.getX() && obj.getX() >= lim_front[1])
+/*
+            if(lim_front[0] <= center.x && center.x >= lim_front[1])
             {
                 // TODO - Mandar pra fpga q o objeto ta em frente 
             }
@@ -110,7 +121,7 @@ int main(int argc, char **argv)
             {
                 // TODO - Mandar pra fpga q n tem objeto em vista 
             }
-            
+  */          
         }
         else
         {
