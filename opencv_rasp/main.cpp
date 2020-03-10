@@ -81,25 +81,36 @@ int main(int argc, char **argv)
         findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
 
         const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
-        const float catch_radius = 55; // Raio quando a distancia for a de ser pego pela garra
+        const float catch_radius[2] = {45, 60}; // Raio quando a distancia for a de ser pego pela garra
+        const float lim_front[2] = {500, 600}; // Limites do meio da tela (quando o objeto esta aqui, esta em frente ao carrinho)
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
             if(!obj.findBestContour(contours))
                 cerr << "Couldnt find contour" << endl;
 
-            string center_str = "Center: X = " + to_string(obj.getX()) + " Y  = " + to_string(obj.getY());
+            string center_str = "Center: X = " + to_string(obj.getX()) + " Y  = " + to_string(obj.getY()); // Deletar na versao final
 
             if(obj.getRadius() > min_radius)
             {
-                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2);
-                putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0));
+                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2); // Deletar na versao final
+                putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0)); // Deletar na versao final
 
-                if(obj.getRadius() == catch_radius)
+                if(catch_radius[0] <= obj.getRadius() && obj.getRadius() >= catch_radius[1])
                 {
                     // TODO - Mandar pra fpga q ta perto
                 }
             }
+
+            if(lim_front[0] <= obj.getX() && obj.getX() >= lim_front[1])
+            {
+                // TODO - Mandar pra fpga q o objeto ta em frente 
+            }
+            else
+            {
+                // TODO - Mandar pra fpga q n tem objeto em vista 
+            }
+            
         }
         else
         {
