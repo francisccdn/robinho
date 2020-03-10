@@ -16,6 +16,8 @@ public:
 
     std::vector<cv::Point> getContour() { return contour; }
     cv::Point2f getCenter() { return center; }
+    float getX() { return center.x; }
+    float getY() { return center.y; }
     float getRadius() { return radius; }
 
     bool findBestContour(std::vector<std::vector<cv::Point>> v);

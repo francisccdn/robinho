@@ -27,5 +27,4 @@ bool Target::findBestContour(std::vector<std::vector<cv::Point>> v)
         return true;
     else
         return false;
-    
 }

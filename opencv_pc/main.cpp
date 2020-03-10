@@ -9,17 +9,6 @@
 using namespace cv;
 using namespace std;
 
-vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
-{
-    std::vector<cv::Point> b = v[0];
-    for(int i = 0; i < v.size(); i++)
-    {
-        if(cv::contourArea(b) < cv::contourArea(v[i]))    
-            b = v[i];
-    }
-    return b;
-}
-
 int main(int argc, char **argv)
 {
     // Abrir a camera
@@ -91,25 +80,20 @@ int main(int argc, char **argv)
         const float catch_radius = 55; // Raio quando a distancia for a de ser pego pela garra
 
         Target obj; // O problema é alguma coisa nessa classe
-        cv::Point2f center;
-        float radius;
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
             if(!obj.findBestContour(contours))
                 cerr << "Couldnt find contour" << endl;
-            //cv::minEnclosingCircle(obj, center, radius);
-            center = obj.getCenter();
-            radius = obj.getRadius();
 
-            string center_str = "Center: X = " + to_string(/*obj.getCenter().x*/center.x) + " Y  = " + to_string(/*obj.getCenter().y*/center.y); // TODO - Escrever as coordenadas do centro
+            string center_str = "Center: X = " + to_string(obj.getX()) + " Y  = " + to_string(obj.getY());
 
-            if(/*obj.getRadius()*/radius > min_radius)
+            if(obj.getRadius() > min_radius)
             {
-                circle(frame, /*obj.getCenter()*/center, /*obj.getRadius()*/radius, Scalar(0, 255, 255), 2);
+                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2);
                 putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0));
 
-                if(/*obj.getRadius()*/radius == catch_radius)
+                if(obj.getRadius() == catch_radius)
                 {
                     // TODO - Mandar pra fpga q ta perto
                 }
