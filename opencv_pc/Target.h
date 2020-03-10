@@ -12,10 +12,12 @@ private:
     float radius;
 
 public:
+    Target();
+
     std::vector<cv::Point> getContour() { return contour; }
     cv::Point2f getCenter() { return center; }
     float getRadius() { return radius; }
 
-    Target(std::vector<cv::Point> contour);
-    Target(std::vector<std::vector<cv::Point>> v);
+    bool findBestContour(std::vector<std::vector<cv::Point>> v);
+    void updatePos(std::vector<cv::Point> contour);
 };

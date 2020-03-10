@@ -9,6 +9,17 @@
 using namespace cv;
 using namespace std;
 
+vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
+{
+    std::vector<cv::Point> b = v[0];
+    for(int i = 0; i < v.size(); i++)
+    {
+        if(cv::contourArea(b) < cv::contourArea(v[i]))    
+            b = v[i];
+    }
+    return b;
+}
+
 int main(int argc, char **argv)
 {
     // Abrir a camera
@@ -64,7 +75,7 @@ int main(int argc, char **argv)
         cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV); //Converte a imagem lida em BRG para HSV
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(redLower[0], redLower[1], redLower[2]), Scalar(redUpper[0], redUpper[1], redUpper[2]), frameMask);
+        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], redUpper[2]), frameMask);
         erode(frameMask, frameMask, NULL);
         dilate(frameMask, frameMask, NULL);
 
@@ -76,20 +87,29 @@ int main(int argc, char **argv)
         vector<vector<Point>> contours;
         findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
 
-        const float min_radius = 0.01;   // Raio minimo do objeto para ser considerado
+        const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
         const float catch_radius = 55; // Raio quando a distancia for a de ser pego pela garra
+
+        Target obj; // O problema é alguma coisa nessa classe
+        cv::Point2f center;
+        float radius;
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
-            Target obj = Target(contours); // O problema é alguma coisa nessa classe
-            string center_str = "Center: X = " + to_string(obj.getCenter().x) + " Y  = " + to_string(obj.getCenter().y); // TODO - Escrever as coordenadas do centro
+            if(!obj.findBestContour(contours))
+                cerr << "Couldnt find contour" << endl;
+            //cv::minEnclosingCircle(obj, center, radius);
+            center = obj.getCenter();
+            radius = obj.getRadius();
 
-            if(obj.getRadius() > min_radius)
+            string center_str = "Center: X = " + to_string(/*obj.getCenter().x*/center.x) + " Y  = " + to_string(/*obj.getCenter().y*/center.y); // TODO - Escrever as coordenadas do centro
+
+            if(/*obj.getRadius()*/radius > min_radius)
             {
-                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2);
+                circle(frame, /*obj.getCenter()*/center, /*obj.getRadius()*/radius, Scalar(0, 255, 255), 2);
                 putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0));
 
-                if(obj.getRadius() == catch_radius)
+                if(/*obj.getRadius()*/radius == catch_radius)
                 {
                     // TODO - Mandar pra fpga q ta perto
                 }
