@@ -1,9 +1,14 @@
+/*  NOTES:
+Usar a classe pode estra dificultando a filtragem da imagem
+*/
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <raspicam/raspicam_cv.h>
+#include <string>
 #include <iostream>
+#include "Target.h"
 
 using namespace cv;
 using namespace std;
@@ -48,31 +53,64 @@ int main(int argc, char **argv)
         // Jogar frames da camera para Mat frameBRG
         cap.grab();
         cap.retrieve(frameBRG);
+        frame = frameBRG; //Deletar na versao final
 
         if(frameBRG.empty())
-        {
+        {//TODO - Fazer disso uma exception
             cerr << "Empty frame." << endl;
             break;
         }
 
-        // Exibir captura da camera sem filtros
-        namedWindow("Cam input", WINDOW_AUTOSIZE);
-        imshow("Cam input", frameBRG);
-
-        // Converte a imagem lida em BRG para HSV
-        cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV);
+        GaussianBlur(frameBRG, frameBRG, Size2i(11,11), 0); //Aplica um blur pro filtro ter menos ruido
+        cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV); //Converte a imagem lida em BRG para HSV
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
+        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], redUpper[2]), frameMask);
         erode(frameMask, frameMask, NULL);
         dilate(frameMask, frameMask, NULL);
 
-        // Exibir captura da camera com filtros
+        // Exibir captura da camera com filtros -- Deletar na versao final
         namedWindow("Mask", WINDOW_AUTOSIZE);
         imshow("Mask", frameMask);
 
+        // Encontra o contorno do Objetos
+        vector<vector<Point>> contours;
+        findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
+
+        const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
+        const float catch_radius = 55; // Raio quando a distancia for a de ser pego pela garra
+
+        Target obj; // O problema é alguma coisa nessa classe
+
+        if(contours.size() > 0)
+        { // Se algum objeto foi encontrado
+            if(!obj.findBestContour(contours))
+                cerr << "Couldnt find contour" << endl;
+
+            string center_str = "Center: X = " + to_string(obj.getX()) + " Y  = " + to_string(obj.getY());
+
+            if(obj.getRadius() > min_radius)
+            {
+                circle(frame, obj.getCenter(), obj.getRadius(), Scalar(0, 255, 255), 2);
+                putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0));
+
+                if(obj.getRadius() == catch_radius)
+                {
+                    // TODO - Mandar pra fpga q ta perto
+                }
+            }
+        }
+        else
+        {
+           // TODO - Mandar pra fpga q n tem objeto em vista 
+        }
+        
+        // Exibir captura da camera com circulo ao redor da bola -- Deletar na versao final
+        namedWindow("Cam input", WINDOW_AUTOSIZE);
+        imshow("Cam input", frame);
+
         // Fecha o programa ao apertar qualquer tecla
-        if(waitKey(30) > 0)
+        if(waitKey(30) != 255)
         {
             cap.release();
             break;
