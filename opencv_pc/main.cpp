@@ -48,6 +48,9 @@ int main(int argc, char **argv)
     createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
     createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
+    // Objeto do objeto a ser buscado
+    Target obj;
+
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
@@ -78,8 +81,6 @@ int main(int argc, char **argv)
 
         const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
         const float catch_radius = 55; // Raio quando a distancia for a de ser pego pela garra
-
-        Target obj; // O problema é alguma coisa nessa classe
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
