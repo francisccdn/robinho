@@ -134,7 +134,7 @@ int main(int argc, char **argv)
         imshow("Cam input", frame);
 
         // Fecha o programa ao apertar qualquer tecla
-        if(waitKey(30) != 255)
+        if(waitKey(30) != -1)
         {
             cap.release();
             break;
