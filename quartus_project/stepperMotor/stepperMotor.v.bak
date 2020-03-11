@@ -1,0 +1,31 @@
+module(clk,dir,out);
+	input dir,clk;
+	output [0:3]out;
+	
+	integer count,i;
+	
+	always@(clk) begin
+		
+		if(dir==0)begin
+			count=0;
+			for(i=count;i<=4;i=i+1)
+				count=count+1;
+		end
+		if(dir==1)begin
+			count=4;
+			for(i=count;i>=0;i=i+1)
+				count=count-1;
+		end
+	end
+	always@(*)
+	case (count)
+		begin 0: ouy[0:3]=4'b0000; end
+		begin 1: out[0:3]=4'b1010; end
+		begin 2: out[0:3]=4'b1001; end
+		begin 3: out[0:3]=4'b0101; end
+		begin 4: out[0:3]=4'b0110; end
+	endcase
+	
+		
+		
+	
