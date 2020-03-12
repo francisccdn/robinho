@@ -58,6 +58,17 @@ int main(int argc, char **argv)
     createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
     createTrackbar("HighV", "Control", &colorUpper[2], 255);
 
+    // Parametros para deteccao do alvo
+    const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
+    const float catch_radius[2] = {45, 60}; // Raio quando a distancia for a de ser pego pela garra
+    const float lim_front[2] = {500, 600}; // Limites do meio da tela (quando o objeto esta aqui, esta em frente ao carrinho)
+    
+    // Objetos para deteccao do alvo
+    vector<vector<Point>> contours;
+    vector<Point> obj;
+    Point2f center;
+    float radius;
+
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
@@ -83,16 +94,7 @@ int main(int argc, char **argv)
         cv::imshow("Mask", frameMask);
 
         // Encontra o contorno do Objetos
-        vector<vector<Point>> contours;
         findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
- 
-        const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
-        const float catch_radius[2] = {45, 60}; // Raio quando a distancia for a de ser pego pela garra
-        const float lim_front[2] = {500, 600}; // Limites do meio da tela (quando o objeto esta aqui, esta em frente ao carrinho)
-
-        vector<Point> obj;
-        Point2f center;
-        float radius;
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
