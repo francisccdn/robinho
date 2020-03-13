@@ -16,8 +16,8 @@ parameter init = 0, stop = 1, foward = 2, turn = 3, clawD = 4, clawU = 5;
 
 //Internal clock
 integer timer = 0;
-integer time_begin;
-parameter claw_downTime = 2000, claw_upTime = 2000, turn_time = 2000;
+integer time_begin, time_limit;
+parameter claw_time = 140000000 /*2.8s*/, turn_time = 250000000 /*5s*/, fwd_time = 100000000 /*2s*/;
 
 //Claw control
 reg dir = c_stop;
@@ -53,7 +53,8 @@ case(cur_state)
 	
 	foward:
 	begin
-		if(timer >= time_begin + turn_time)
+		time_limit = (time_begin + fwd_time) > 4294967296 ? (time_begin + fwd_time - 4294967296) : (time_begin + fwd_time); 
+		if(timer >= time_limit)
 		begin
 			time_begin = timer;
 			n_turns = n_turns - 1;
@@ -66,7 +67,8 @@ case(cur_state)
 	
 	turn:
 	begin
-		if(timer >= time_begin + turn_time)
+		time_limit = (time_begin + turn_time) > 4294967296 ? (time_begin + turn_time - 4294967296) : (time_begin + turn_time); 
+		if(timer >= time_limit)
 		begin
 			time_begin = timer;
 			n_turns = n_turns + 1;
@@ -140,7 +142,7 @@ case(cur_state)
 	
 	turn:
 	begin
-		if(obj_inSight || n_turns > 3)
+		if(obj_inSight || n_turns > 2)
 		begin
 			time_begin = timer;
 			cur_state <= foward;
@@ -151,14 +153,16 @@ case(cur_state)
 	clawD:
 	begin
 		time_begin = timer;
-		if(timer > time_begin + claw_downTime)
+		time_limit = (time_begin + claw_time) > 4294967296 ? (time_begin + claw_time - 4294967296) : (time_begin + claw_time); 
+		if(timer > time_limit)
 			cur_state <= clawU;
 	end
 	
 	clawU:
 	begin
 		time_begin = timer;
-		if(timer > time_begin + claw_upTime)
+		time_limit = (time_begin + claw_time) > 4294967296 ? (time_begin + claw_time - 4294967296) : (time_begin + claw_time); 
+		if(timer > time_limit)
 			cur_state <= stop;
 	end
 	

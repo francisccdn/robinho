@@ -1,7 +1,7 @@
 vendor_name = ModelSim
-source_file = 1, C:/Users/Francisco/Documents/Universidade/Robinho/quartus_project/stepperMotor.v
-source_file = 1, C:/Users/Francisco/Documents/Universidade/Robinho/quartus_project/robinho.v
-source_file = 1, C:/Users/Francisco/Documents/Universidade/Robinho/quartus_project/db/robinho.cbx.xml
+source_file = 1, C:/Users/Francisco/Documents/Universidade/Robinho/fpga/stepperMotor.v
+source_file = 1, C:/Users/Francisco/Documents/Universidade/Robinho/fpga/robinho.v
+source_file = 1, C:/Users/Francisco/Documents/Universidade/Robinho/fpga/db/robinho.cbx.xml
 design_name = robinho
 instance = comp, \claw|Add0~38 , claw|Add0~38, robinho, 1
 instance = comp, \claw|Add0~42 , claw|Add0~42, robinho, 1
