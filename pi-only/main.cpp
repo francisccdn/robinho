@@ -56,7 +56,7 @@ int main(int argc, char **argv)
     float radius;
 
     // Objeto do robo
-    Robot robinho(35, 36, 37, 38, 13, 15, 16, 18);
+    Robot *robinho = new Robot(35, 36, 37, 38, 13, 15, 16, 18);
 
     while(1)
     {
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
         cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV); //Converte a imagem lida em BRG para HSV
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], redUpper[2]), frameMask);
+        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
         erode(frameMask, frameMask, NULL);
         dilate(frameMask, frameMask, NULL);
 
@@ -91,20 +91,20 @@ int main(int argc, char **argv)
             {
                 if(catch_radius[0] <= radius && radius >= catch_radius[1])
                 {
-                    robinho.grab(); // Tá na distancia para pegar com a garra
+                    robinho->grab(); // Tá na distancia para pegar com a garra
                 }
 
                 if(lim_front[0] <= center.x && center.x >= lim_front[1])
                 {
-                    robinho.foward();
+                    robinho->foward();
                 }
                 else if(center.x < lim_front[0])
                 {
-                    robinho.turn(LEFT); // Objeto esta a esquerda
+                    robinho->turn(LEFT); // Objeto esta a esquerda
                 }
                 else if(lim_front[1] < center.x)
                 {
-                    robinho.turn(RIGHT); // Objeto esta a direita
+                    robinho->turn(RIGHT); // Objeto esta a direita
                 }  
             }
             else
@@ -115,7 +115,7 @@ int main(int argc, char **argv)
         }
         if(!seeingObjects)
         {
-           robinho.search();
+           robinho->search();
         }
 
         // Fecha o programa ao apertar qualquer tecla
