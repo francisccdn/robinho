@@ -1,0 +1,6 @@
+40 - PIN_B12
+36 - PIN_B11
+32 - PIN_D9
+28 - PIN_E9
+
+CLK - PIN_R8
