@@ -10,6 +10,9 @@
 #include <chrono>
 #include "Robot.h"
 
+#define LEFT 0
+#define RIGHT 1
+
 using namespace cv;
 using namespace std;
 
@@ -97,11 +100,11 @@ int main(int argc, char **argv)
                 }
                 else if(center.x < lim_front[0])
                 {
-                    robinho.turn(0); // Objeto esta a esquerda
+                    robinho.turn(LEFT); // Objeto esta a esquerda
                 }
                 else if(lim_front[1] < center.x)
                 {
-                    robinho.turn(1); // Objeto esta a direita
+                    robinho.turn(RIGHT); // Objeto esta a direita
                 }  
             }
             else
@@ -112,9 +115,7 @@ int main(int argc, char **argv)
         }
         if(!seeingObjects)
         {
-           robinho.foward();
-           sleep(5);
-           robinho.turn(1);
+           robinho.search();
         }
 
         // Fecha o programa ao apertar qualquer tecla

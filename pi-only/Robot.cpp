@@ -1,5 +1,7 @@
 #include "Robot.h"
 
+#define FULLTURN 5
+
 Robot::Robot(int w1, int w2, int w3, int w4, int c1, int c2, int c3, int c4)
     :   Car(w1, w2, w3, w4)
 {
@@ -113,4 +115,12 @@ void Robot::grab()
     claw_down();
     claw_up();
     claw_stop();
+}
+
+void Robot::search()
+{
+    turn(rand()%2);
+    sleep(FULLTURN/(rand()%5));
+    foward();
+    sleep(rand() % 8);
 }

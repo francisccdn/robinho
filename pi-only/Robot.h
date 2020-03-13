@@ -2,10 +2,9 @@
 
 #include <pigpio.h>
 #include <unistd.h>
+#include <cstdlib>
 #include <chrono>
 #include "Car.h"
-
-#define TURN_TIME 5
 
 class Robot : public Car
 {
@@ -21,5 +20,6 @@ public:
     Robot(int w1, int w2, int w3, int w4, int c1, int c2, int c3, int c4);
     ~Robot();
 
+    void search();
     void grab();
 };
