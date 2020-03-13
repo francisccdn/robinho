@@ -1,0 +1,1559 @@
+TimeQuest Timing Analyzer report for robinho
+Thu Mar 12 23:56:37 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'clk'
+ 15. Clock to Output Times
+ 16. Minimum Clock to Output Times
+ 17. Slow 1200mV 85C Model Metastability Report
+ 18. Slow 1200mV 0C Model Fmax Summary
+ 19. Slow 1200mV 0C Model Setup Summary
+ 20. Slow 1200mV 0C Model Hold Summary
+ 21. Slow 1200mV 0C Model Recovery Summary
+ 22. Slow 1200mV 0C Model Removal Summary
+ 23. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 24. Slow 1200mV 0C Model Setup: 'clk'
+ 25. Slow 1200mV 0C Model Hold: 'clk'
+ 26. Slow 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 27. Clock to Output Times
+ 28. Minimum Clock to Output Times
+ 29. Slow 1200mV 0C Model Metastability Report
+ 30. Fast 1200mV 0C Model Setup Summary
+ 31. Fast 1200mV 0C Model Hold Summary
+ 32. Fast 1200mV 0C Model Recovery Summary
+ 33. Fast 1200mV 0C Model Removal Summary
+ 34. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 35. Fast 1200mV 0C Model Setup: 'clk'
+ 36. Fast 1200mV 0C Model Hold: 'clk'
+ 37. Fast 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 38. Clock to Output Times
+ 39. Minimum Clock to Output Times
+ 40. Fast 1200mV 0C Model Metastability Report
+ 41. Multicorner Timing Analysis Summary
+ 42. Clock to Output Times
+ 43. Minimum Clock to Output Times
+ 44. Board Trace Model Assignments
+ 45. Input Transition Times
+ 46. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 47. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 48. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 49. Setup Transfers
+ 50. Hold Transfers
+ 51. Report TCCS
+ 52. Report RSKM
+ 53. Unconstrained Paths
+ 54. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; robinho                                                           ;
+; Device Family      ; Cyclone IV E                                                      ;
+; Device Name        ; EP4CE22F17C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Enabled                                                           ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 163.24 MHz ; 163.24 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -5.126 ; -152.609           ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.343 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -36.000                          ;
++-------+--------+----------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                       ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -5.126 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.063     ; 6.058      ;
+; -5.124 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.063     ; 6.056      ;
+; -5.124 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.063     ; 6.056      ;
+; -5.098 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.062     ; 6.031      ;
+; -5.096 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 6.029      ;
+; -5.096 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.062     ; 6.029      ;
+; -5.079 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.063     ; 6.011      ;
+; -5.076 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.062     ; 6.009      ;
+; -5.074 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 6.007      ;
+; -5.074 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.062     ; 6.007      ;
+; -5.051 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.984      ;
+; -5.047 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.979      ;
+; -5.045 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.977      ;
+; -5.045 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.977      ;
+; -5.029 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.962      ;
+; -5.025 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.592      ;
+; -5.023 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.590      ;
+; -5.023 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.590      ;
+; -5.019 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.951      ;
+; -5.017 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.949      ;
+; -5.017 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.949      ;
+; -5.006 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.938      ;
+; -5.004 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.936      ;
+; -5.004 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.936      ;
+; -5.001 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.934      ;
+; -5.000 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.932      ;
+; -4.999 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.932      ;
+; -4.999 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.932      ;
+; -4.988 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.921      ;
+; -4.986 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.919      ;
+; -4.986 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.919      ;
+; -4.978 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.545      ;
+; -4.972 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.904      ;
+; -4.959 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.891      ;
+; -4.954 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.887      ;
+; -4.951 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.884      ;
+; -4.941 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.874      ;
+; -4.923 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.857      ;
+; -4.919 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.486      ;
+; -4.917 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.484      ;
+; -4.917 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.484      ;
+; -4.904 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.837      ;
+; -4.903 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.836      ;
+; -4.901 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.835      ;
+; -4.900 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.833      ;
+; -4.899 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.062     ; 5.832      ;
+; -4.893 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 5.826      ;
+; -4.888 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.821      ;
+; -4.888 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.820      ;
+; -4.886 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.818      ;
+; -4.886 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.818      ;
+; -4.882 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.449      ;
+; -4.880 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.447      ;
+; -4.880 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.447      ;
+; -4.876 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.810      ;
+; -4.875 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.809      ;
+; -4.872 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.439      ;
+; -4.872 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.805      ;
+; -4.872 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.806      ;
+; -4.871 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.061     ; 5.805      ;
+; -4.865 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.061     ; 5.799      ;
+; -4.860 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.794      ;
+; -4.854 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.421      ;
+; -4.854 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.788      ;
+; -4.853 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.787      ;
+; -4.852 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.419      ;
+; -4.852 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.419      ;
+; -4.850 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.427     ; 5.418      ;
+; -4.850 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.784      ;
+; -4.849 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.061     ; 5.783      ;
+; -4.844 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.777      ;
+; -4.843 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.061     ; 5.777      ;
+; -4.841 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.063     ; 5.773      ;
+; -4.838 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.772      ;
+; -4.835 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.402      ;
+; -4.831 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.764      ;
+; -4.826 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.760      ;
+; -4.825 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.758      ;
+; -4.824 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.757      ;
+; -4.821 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.754      ;
+; -4.820 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.062     ; 5.753      ;
+; -4.814 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 5.747      ;
+; -4.813 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.061     ; 5.747      ;
+; -4.809 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.742      ;
+; -4.807 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.428     ; 5.374      ;
+; -4.803 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.427     ; 5.371      ;
+; -4.802 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.427     ; 5.370      ;
+; -4.799 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.427     ; 5.367      ;
+; -4.798 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.427     ; 5.366      ;
+; -4.797 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.730      ;
+; -4.796 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.729      ;
+; -4.793 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.726      ;
+; -4.792 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.062     ; 5.725      ;
+; -4.792 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.427     ; 5.360      ;
+; -4.787 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.427     ; 5.355      ;
+; -4.786 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.062     ; 5.719      ;
+; -4.784 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.717      ;
+; -4.783 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.716      ;
+; -4.781 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.714      ;
+; -4.780 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.062     ; 5.713      ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                             ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.343 ; stepperMotor:claw|stepMotor[3] ; stepperMotor:claw|stepMotor[3] ; clk          ; clk         ; 0.000        ; 0.077      ; 0.577      ;
+; 0.548 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; 0.062      ; 0.767      ;
+; 1.288 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.522      ;
+; 1.296 ; stepperMotor:claw|timer[19]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.529      ;
+; 1.316 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[1]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.535      ;
+; 1.331 ; stepperMotor:claw|timer[12]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.565      ;
+; 1.338 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.557      ;
+; 1.360 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.077      ; 1.594      ;
+; 1.372 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[0]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.591      ;
+; 1.374 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.607      ;
+; 1.376 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.595      ;
+; 1.468 ; stepperMotor:claw|timer[11]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.702      ;
+; 1.500 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.084      ;
+; 1.534 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.427      ; 2.118      ;
+; 1.536 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[24]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.120      ;
+; 1.537 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[27]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.121      ;
+; 1.537 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[30]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.121      ;
+; 1.537 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[29]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.121      ;
+; 1.538 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[25]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.122      ;
+; 1.541 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.125      ;
+; 1.542 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.126      ;
+; 1.565 ; stepperMotor:claw|timer[30]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.289     ; 1.433      ;
+; 1.582 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.166      ;
+; 1.582 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.167      ;
+; 1.595 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.828      ;
+; 1.598 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.183      ;
+; 1.600 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.834      ;
+; 1.602 ; stepperMotor:claw|timer[11]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.836      ;
+; 1.604 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[1]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.823      ;
+; 1.604 ; stepperMotor:claw|timer[25]    ; stepperMotor:claw|timer[25]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.837      ;
+; 1.612 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[27]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.845      ;
+; 1.613 ; stepperMotor:claw|timer[28]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.846      ;
+; 1.613 ; stepperMotor:claw|timer[29]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.289     ; 1.481      ;
+; 1.614 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.428      ; 2.199      ;
+; 1.615 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.849      ;
+; 1.616 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.427      ; 2.200      ;
+; 1.616 ; stepperMotor:claw|timer[22]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.849      ;
+; 1.625 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.209      ;
+; 1.625 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.844      ;
+; 1.627 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.211      ;
+; 1.627 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.211      ;
+; 1.628 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.847      ;
+; 1.628 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.212      ;
+; 1.629 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.213      ;
+; 1.632 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.428      ; 2.217      ;
+; 1.639 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.858      ;
+; 1.643 ; stepperMotor:claw|timer[24]    ; stepperMotor:claw|timer[24]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.876      ;
+; 1.646 ; stepperMotor:claw|timer[28]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.289     ; 1.514      ;
+; 1.649 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.233      ;
+; 1.657 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.427      ; 2.241      ;
+; 1.660 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|stepMotor[3] ; clk          ; clk         ; 0.000        ; 0.427      ; 2.244      ;
+; 1.661 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.427      ; 2.245      ;
+; 1.663 ; stepperMotor:claw|timer[29]    ; stepperMotor:claw|timer[29]    ; clk          ; clk         ; 0.000        ; 0.076      ; 1.896      ;
+; 1.669 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.253      ;
+; 1.669 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.254      ;
+; 1.683 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.268      ;
+; 1.693 ; stepperMotor:claw|timer[26]    ; stepperMotor:claw|timer[26]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.927      ;
+; 1.699 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.918      ;
+; 1.703 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.428      ; 2.288      ;
+; 1.707 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.289     ; 1.575      ;
+; 1.710 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[15]    ; clk          ; clk         ; 0.000        ; 0.062      ; 1.929      ;
+; 1.710 ; stepperMotor:claw|timer[23]    ; stepperMotor:claw|timer[23]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.944      ;
+; 1.713 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.297      ;
+; 1.713 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.062      ; 1.932      ;
+; 1.717 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.428      ; 2.302      ;
+; 1.728 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.312      ;
+; 1.730 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.314      ;
+; 1.730 ; stepperMotor:claw|timer[4]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.314      ;
+; 1.731 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.315      ;
+; 1.731 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.316      ;
+; 1.737 ; stepperMotor:claw|timer[16]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.971      ;
+; 1.740 ; stepperMotor:claw|timer[21]    ; stepperMotor:claw|timer[21]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.974      ;
+; 1.747 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.332      ;
+; 1.749 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.983      ;
+; 1.754 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.077      ; 1.988      ;
+; 1.764 ; stepperMotor:claw|timer[4]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.427      ; 2.348      ;
+; 1.766 ; stepperMotor:claw|timer[26]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.288     ; 1.635      ;
+; 1.773 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.357      ;
+; 1.774 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.358      ;
+; 1.774 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.427      ; 2.358      ;
+; 1.776 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.360      ;
+; 1.777 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.361      ;
+; 1.778 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.362      ;
+; 1.783 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[5]     ; clk          ; clk         ; 0.000        ; 0.062      ; 2.002      ;
+; 1.788 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.372      ;
+; 1.797 ; stepperMotor:claw|timer[14]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.076      ; 2.030      ;
+; 1.805 ; stepperMotor:claw|timer[12]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.077      ; 2.039      ;
+; 1.806 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.390      ;
+; 1.810 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[17]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.394      ;
+; 1.811 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[21]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.395      ;
+; 1.812 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[20]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.396      ;
+; 1.815 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[26]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.399      ;
+; 1.815 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[23]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.399      ;
+; 1.815 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.427      ; 2.399      ;
+; 1.818 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.403      ;
+; 1.819 ; stepperMotor:claw|timer[19]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.076      ; 2.052      ;
+; 1.829 ; stepperMotor:claw|timer[25]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.289     ; 1.697      ;
+; 1.832 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.428      ; 2.417      ;
+; 1.833 ; stepperMotor:claw|timer[24]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.289     ; 1.701      ;
+; 1.844 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.076      ; 2.077      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'clk'                                                               ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                         ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk   ; Rise       ; clk                            ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|stepMotor[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[10]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[11]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[12]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[13]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[14]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[15]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[16]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[17]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[18]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[19]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[20]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[21]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[22]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[23]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[24]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[25]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[26]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[27]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[28]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[29]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[30]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[31]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[3]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[4]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[5]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[6]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[7]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[8]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[9]     ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|stepMotor[3] ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[10]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[11]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[12]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[14]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[16]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[17]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[18]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[19]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[20]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[21]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[22]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[23]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[24]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[25]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[26]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[27]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[28]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[29]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[30]    ;
+; 0.172  ; 0.356        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[9]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[0]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[13]    ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[15]    ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[1]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[2]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[31]    ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[3]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[4]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[5]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[6]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[7]     ;
+; 0.181  ; 0.365        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[8]     ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|stepMotor[3]|clk          ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[10]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[11]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[12]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[14]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[16]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[17]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[18]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[19]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[20]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[21]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[22]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[23]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[24]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[25]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[26]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[27]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[28]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[29]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[30]|clk             ;
+; 0.334  ; 0.334        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[9]|clk              ;
+; 0.335  ; 0.335        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; clk~input|o                    ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[0]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[13]|clk             ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[15]|clk             ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[1]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[2]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[31]|clk             ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[3]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[4]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[5]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[6]|clk              ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[7]|clk              ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 6.124 ; 6.124 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 6.124 ; 6.124 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 5.923 ; 5.921 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 5.923 ; 5.921 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 183.15 MHz ; 183.15 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -4.460 ; -133.212          ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.299 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -36.000                         ;
++-------+--------+---------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                        ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -4.460 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.400      ;
+; -4.458 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.398      ;
+; -4.458 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.398      ;
+; -4.450 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.390      ;
+; -4.411 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.351      ;
+; -4.409 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.349      ;
+; -4.409 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.349      ;
+; -4.407 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.347      ;
+; -4.405 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.345      ;
+; -4.405 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.345      ;
+; -4.397 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.337      ;
+; -4.373 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.313      ;
+; -4.372 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.312      ;
+; -4.370 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.310      ;
+; -4.370 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.310      ;
+; -4.366 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.306      ;
+; -4.364 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.304      ;
+; -4.364 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.304      ;
+; -4.363 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.975      ;
+; -4.362 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.302      ;
+; -4.361 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.973      ;
+; -4.361 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.973      ;
+; -4.339 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.279      ;
+; -4.337 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.277      ;
+; -4.337 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.277      ;
+; -4.331 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.271      ;
+; -4.329 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.269      ;
+; -4.329 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.269      ;
+; -4.329 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.269      ;
+; -4.328 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.268      ;
+; -4.327 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.267      ;
+; -4.327 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.267      ;
+; -4.325 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.937      ;
+; -4.321 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.261      ;
+; -4.301 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.241      ;
+; -4.300 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.241      ;
+; -4.299 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.911      ;
+; -4.297 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.909      ;
+; -4.297 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.909      ;
+; -4.291 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.231      ;
+; -4.261 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.873      ;
+; -4.258 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.198      ;
+; -4.257 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.198      ;
+; -4.256 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.197      ;
+; -4.256 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.196      ;
+; -4.256 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.196      ;
+; -4.253 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.194      ;
+; -4.251 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.192      ;
+; -4.251 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.192      ;
+; -4.248 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.055     ; 5.188      ;
+; -4.247 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.188      ;
+; -4.246 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.187      ;
+; -4.244 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.185      ;
+; -4.239 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.851      ;
+; -4.237 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.849      ;
+; -4.237 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.849      ;
+; -4.223 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.835      ;
+; -4.221 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.833      ;
+; -4.221 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.833      ;
+; -4.212 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.153      ;
+; -4.208 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.149      ;
+; -4.207 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.148      ;
+; -4.206 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.147      ;
+; -4.204 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.145      ;
+; -4.204 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.145      ;
+; -4.203 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.144      ;
+; -4.203 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.382     ; 4.816      ;
+; -4.202 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.143      ;
+; -4.201 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.813      ;
+; -4.200 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.141      ;
+; -4.198 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.139      ;
+; -4.197 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.138      ;
+; -4.195 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.136      ;
+; -4.193 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.134      ;
+; -4.191 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.132      ;
+; -4.185 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.383     ; 4.797      ;
+; -4.179 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.120      ;
+; -4.171 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.112      ;
+; -4.169 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.110      ;
+; -4.169 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.110      ;
+; -4.168 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.109      ;
+; -4.165 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.106      ;
+; -4.163 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.104      ;
+; -4.163 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.104      ;
+; -4.162 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.103      ;
+; -4.160 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.382     ; 4.773      ;
+; -4.159 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.382     ; 4.772      ;
+; -4.159 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.100      ;
+; -4.158 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.099      ;
+; -4.157 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.098      ;
+; -4.156 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.097      ;
+; -4.156 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.382     ; 4.769      ;
+; -4.154 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.382     ; 4.767      ;
+; -4.152 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.054     ; 5.093      ;
+; -4.150 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.054     ; 5.091      ;
+; -4.149 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.382     ; 4.762      ;
+; -4.147 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[11] ; clk          ; clk         ; 1.000        ; 0.260      ; 5.402      ;
+; -4.147 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.382     ; 4.760      ;
+; -4.144 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[10] ; clk          ; clk         ; 1.000        ; 0.260      ; 5.399      ;
+; -4.139 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.382     ; 4.752      ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                              ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.299 ; stepperMotor:claw|stepMotor[3] ; stepperMotor:claw|stepMotor[3] ; clk          ; clk         ; 0.000        ; 0.068      ; 0.511      ;
+; 0.492 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; 0.055      ; 0.691      ;
+; 1.177 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.389      ;
+; 1.183 ; stepperMotor:claw|timer[19]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.395      ;
+; 1.206 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[1]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.405      ;
+; 1.217 ; stepperMotor:claw|timer[12]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.429      ;
+; 1.224 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.423      ;
+; 1.230 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[0]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.429      ;
+; 1.247 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.068      ; 1.459      ;
+; 1.251 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.463      ;
+; 1.263 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.462      ;
+; 1.344 ; stepperMotor:claw|timer[11]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.556      ;
+; 1.372 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.898      ;
+; 1.384 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.382      ; 1.910      ;
+; 1.393 ; stepperMotor:claw|timer[30]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.278      ;
+; 1.403 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[27]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.929      ;
+; 1.403 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[25]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.929      ;
+; 1.403 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.929      ;
+; 1.403 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[30]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.929      ;
+; 1.405 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[29]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.931      ;
+; 1.408 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[24]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.934      ;
+; 1.409 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.935      ;
+; 1.427 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.383      ; 1.954      ;
+; 1.433 ; stepperMotor:claw|timer[29]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.318      ;
+; 1.439 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.383      ; 1.966      ;
+; 1.441 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.383      ; 1.968      ;
+; 1.444 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.970      ;
+; 1.449 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.661      ;
+; 1.453 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.383      ; 1.980      ;
+; 1.456 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.382      ; 1.982      ;
+; 1.457 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.669      ;
+; 1.458 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[1]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.657      ;
+; 1.460 ; stepperMotor:claw|timer[11]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.672      ;
+; 1.468 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.994      ;
+; 1.469 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.995      ;
+; 1.469 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.681      ;
+; 1.470 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.382      ; 1.996      ;
+; 1.472 ; stepperMotor:claw|timer[28]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.357      ;
+; 1.475 ; stepperMotor:claw|timer[25]    ; stepperMotor:claw|timer[25]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.687      ;
+; 1.477 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.003      ;
+; 1.478 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.677      ;
+; 1.481 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.007      ;
+; 1.481 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.382      ; 2.007      ;
+; 1.484 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.683      ;
+; 1.484 ; stepperMotor:claw|timer[28]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.696      ;
+; 1.486 ; stepperMotor:claw|timer[22]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.698      ;
+; 1.489 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[27]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.701      ;
+; 1.493 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.382      ; 2.019      ;
+; 1.496 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|stepMotor[3] ; clk          ; clk         ; 0.000        ; 0.382      ; 2.022      ;
+; 1.496 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.695      ;
+; 1.502 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.383      ; 2.029      ;
+; 1.504 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.030      ;
+; 1.505 ; stepperMotor:claw|timer[24]    ; stepperMotor:claw|timer[24]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.717      ;
+; 1.511 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.037      ;
+; 1.514 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.383      ; 2.041      ;
+; 1.514 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.383      ; 2.041      ;
+; 1.515 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.400      ;
+; 1.522 ; stepperMotor:claw|timer[29]    ; stepperMotor:claw|timer[29]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.734      ;
+; 1.526 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.383      ; 2.053      ;
+; 1.530 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.729      ;
+; 1.538 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.064      ;
+; 1.551 ; stepperMotor:claw|timer[26]    ; stepperMotor:claw|timer[26]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.763      ;
+; 1.551 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.055      ; 1.750      ;
+; 1.556 ; stepperMotor:claw|timer[23]    ; stepperMotor:claw|timer[23]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.768      ;
+; 1.559 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.383      ; 2.086      ;
+; 1.565 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[15]    ; clk          ; clk         ; 0.000        ; 0.054      ; 1.763      ;
+; 1.566 ; stepperMotor:claw|timer[4]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.092      ;
+; 1.569 ; stepperMotor:claw|timer[26]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.454      ;
+; 1.573 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.785      ;
+; 1.573 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.383      ; 2.100      ;
+; 1.576 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.102      ;
+; 1.577 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.103      ;
+; 1.578 ; stepperMotor:claw|timer[4]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.382      ; 2.104      ;
+; 1.585 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.111      ;
+; 1.586 ; stepperMotor:claw|timer[16]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.798      ;
+; 1.589 ; stepperMotor:claw|timer[21]    ; stepperMotor:claw|timer[21]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.801      ;
+; 1.589 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.801      ;
+; 1.595 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.121      ;
+; 1.595 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.382      ; 2.121      ;
+; 1.596 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.122      ;
+; 1.599 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.125      ;
+; 1.608 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.134      ;
+; 1.609 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.135      ;
+; 1.613 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.139      ;
+; 1.614 ; stepperMotor:claw|timer[25]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.499      ;
+; 1.632 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.158      ;
+; 1.634 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.383      ; 2.161      ;
+; 1.636 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[5]     ; clk          ; clk         ; 0.000        ; 0.054      ; 1.834      ;
+; 1.636 ; stepperMotor:claw|timer[24]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.259     ; 1.521      ;
+; 1.646 ; stepperMotor:claw|timer[12]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.858      ;
+; 1.646 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.383      ; 2.173      ;
+; 1.649 ; stepperMotor:claw|timer[19]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.861      ;
+; 1.649 ; stepperMotor:claw|timer[14]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.068      ; 1.861      ;
+; 1.650 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.176      ;
+; 1.651 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[21]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.177      ;
+; 1.652 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[17]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.178      ;
+; 1.653 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[26]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.179      ;
+; 1.654 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[20]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.180      ;
+; 1.654 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[23]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.180      ;
+; 1.655 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.382      ; 2.181      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'clk'                                                                ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                         ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk   ; Rise       ; clk                            ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|stepMotor[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[10]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[11]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[12]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[13]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[14]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[15]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[16]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[17]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[18]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[19]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[20]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[21]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[22]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[23]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[24]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[25]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[26]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[27]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[28]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[29]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[30]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[31]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[3]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[4]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[5]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[6]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[7]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[8]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[9]     ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|stepMotor[3] ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[10]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[11]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[12]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[14]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[16]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[17]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[18]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[19]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[20]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[21]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[22]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[23]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[24]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[25]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[26]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[27]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[28]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[29]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[30]    ;
+; 0.200  ; 0.384        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[9]     ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[13]    ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[15]    ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[4]     ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[5]     ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[6]     ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[7]     ;
+; 0.202  ; 0.386        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[8]     ;
+; 0.203  ; 0.387        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[0]     ;
+; 0.203  ; 0.387        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[1]     ;
+; 0.203  ; 0.387        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[2]     ;
+; 0.203  ; 0.387        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[31]    ;
+; 0.203  ; 0.387        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[3]     ;
+; 0.358  ; 0.358        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; clk~input|o                    ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|stepMotor[3]|clk          ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[10]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[11]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[12]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[14]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[16]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[17]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[18]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[19]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[20]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[21]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[22]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[23]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[24]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[25]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[26]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[27]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[28]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[29]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[30]|clk             ;
+; 0.360  ; 0.360        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[9]|clk              ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[13]|clk             ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[15]|clk             ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[4]|clk              ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[5]|clk              ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[6]|clk              ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[7]|clk              ;
+; 0.362  ; 0.362        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[8]|clk              ;
+; 0.363  ; 0.363        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[0]|clk              ;
+; 0.363  ; 0.363        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[1]|clk              ;
+; 0.363  ; 0.363        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[2]|clk              ;
+; 0.363  ; 0.363        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[31]|clk             ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 5.502 ; 5.473 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 5.502 ; 5.473 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 5.310 ; 5.281 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 5.310 ; 5.281 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -2.435 ; -70.732           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.179 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -38.380                         ;
++-------+--------+---------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                        ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -2.435 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.386      ;
+; -2.434 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.385      ;
+; -2.434 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.385      ;
+; -2.426 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.377      ;
+; -2.425 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.376      ;
+; -2.425 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.376      ;
+; -2.415 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.366      ;
+; -2.414 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.365      ;
+; -2.408 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.359      ;
+; -2.407 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.358      ;
+; -2.407 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.358      ;
+; -2.406 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.357      ;
+; -2.405 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.356      ;
+; -2.405 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.356      ;
+; -2.398 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.349      ;
+; -2.397 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.348      ;
+; -2.397 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.348      ;
+; -2.396 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.347      ;
+; -2.386 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.337      ;
+; -2.378 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.329      ;
+; -2.376 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.327      ;
+; -2.375 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.326      ;
+; -2.375 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.326      ;
+; -2.373 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.127      ;
+; -2.372 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.126      ;
+; -2.372 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.126      ;
+; -2.366 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.317      ;
+; -2.365 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.316      ;
+; -2.365 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.316      ;
+; -2.356 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.307      ;
+; -2.355 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.306      ;
+; -2.354 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.305      ;
+; -2.354 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.305      ;
+; -2.354 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.305      ;
+; -2.346 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.100      ;
+; -2.343 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.294      ;
+; -2.322 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.273      ;
+; -2.313 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.264      ;
+; -2.296 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.247      ;
+; -2.295 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.246      ;
+; -2.294 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.048      ;
+; -2.293 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.047      ;
+; -2.293 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.047      ;
+; -2.293 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.244      ;
+; -2.291 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.242      ;
+; -2.291 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.234     ; 3.044      ;
+; -2.290 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.241      ;
+; -2.290 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.234     ; 3.043      ;
+; -2.290 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.234     ; 3.043      ;
+; -2.288 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.239      ;
+; -2.288 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.239      ;
+; -2.287 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.238      ;
+; -2.287 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.238      ;
+; -2.287 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.238      ;
+; -2.285 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.236      ;
+; -2.285 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.236      ;
+; -2.282 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.233      ;
+; -2.282 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.233      ;
+; -2.281 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.232      ;
+; -2.279 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.230      ;
+; -2.276 ; stepperMotor:claw|timer[8]  ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.227      ;
+; -2.276 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.227      ;
+; -2.273 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.224      ;
+; -2.269 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.220      ;
+; -2.267 ; stepperMotor:claw|timer[11] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.021      ;
+; -2.267 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.218      ;
+; -2.264 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[1]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.018      ;
+; -2.264 ; stepperMotor:claw|timer[14] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.234     ; 3.017      ;
+; -2.264 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.215      ;
+; -2.263 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[2]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.017      ;
+; -2.263 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[3]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.017      ;
+; -2.263 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.214      ;
+; -2.263 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.214      ;
+; -2.262 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.213      ;
+; -2.261 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.212      ;
+; -2.261 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.212      ;
+; -2.260 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.233     ; 3.014      ;
+; -2.259 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.210      ;
+; -2.259 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.210      ;
+; -2.258 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.209      ;
+; -2.256 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.207      ;
+; -2.255 ; stepperMotor:claw|timer[0]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.206      ;
+; -2.254 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.205      ;
+; -2.253 ; stepperMotor:claw|timer[6]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.204      ;
+; -2.253 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.204      ;
+; -2.253 ; stepperMotor:claw|timer[5]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.204      ;
+; -2.251 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.202      ;
+; -2.248 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[15] ; clk          ; clk         ; 1.000        ; -0.036     ; 3.199      ;
+; -2.246 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[11] ; clk          ; clk         ; 1.000        ; 0.153      ; 3.386      ;
+; -2.245 ; stepperMotor:claw|timer[1]  ; stepperMotor:claw|timer[10] ; clk          ; clk         ; 1.000        ; 0.153      ; 3.385      ;
+; -2.245 ; stepperMotor:claw|timer[7]  ; stepperMotor:claw|timer[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.196      ;
+; -2.242 ; stepperMotor:claw|timer[2]  ; stepperMotor:claw|timer[5]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.193      ;
+; -2.237 ; stepperMotor:claw|timer[10] ; stepperMotor:claw|timer[0]  ; clk          ; clk         ; 1.000        ; -0.233     ; 2.991      ;
+; -2.237 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.188      ;
+; -2.237 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[11] ; clk          ; clk         ; 1.000        ; 0.153      ; 3.377      ;
+; -2.236 ; stepperMotor:claw|timer[4]  ; stepperMotor:claw|timer[10] ; clk          ; clk         ; 1.000        ; 0.153      ; 3.376      ;
+; -2.234 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[8]  ; clk          ; clk         ; 1.000        ; -0.233     ; 2.988      ;
+; -2.232 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.183      ;
+; -2.231 ; stepperMotor:claw|timer[3]  ; stepperMotor:claw|timer[4]  ; clk          ; clk         ; 1.000        ; -0.036     ; 3.182      ;
+; -2.229 ; stepperMotor:claw|timer[9]  ; stepperMotor:claw|timer[7]  ; clk          ; clk         ; 1.000        ; -0.233     ; 2.983      ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                              ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                      ; To Node                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.179 ; stepperMotor:claw|stepMotor[3] ; stepperMotor:claw|stepMotor[3] ; clk          ; clk         ; 0.000        ; 0.044      ; 0.307      ;
+; 0.292 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; 0.036      ; 0.412      ;
+; 0.684 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.812      ;
+; 0.686 ; stepperMotor:claw|timer[19]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.814      ;
+; 0.696 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[1]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.816      ;
+; 0.703 ; stepperMotor:claw|timer[12]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.831      ;
+; 0.704 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.824      ;
+; 0.715 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.044      ; 0.843      ;
+; 0.718 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.846      ;
+; 0.721 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[0]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.841      ;
+; 0.723 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.843      ;
+; 0.778 ; stepperMotor:claw|timer[11]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.906      ;
+; 0.804 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.121      ;
+; 0.809 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[25]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.125      ;
+; 0.809 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[30]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.125      ;
+; 0.810 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[29]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.126      ;
+; 0.811 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[24]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.127      ;
+; 0.812 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[27]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.128      ;
+; 0.812 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.128      ;
+; 0.812 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.128      ;
+; 0.816 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.133      ;
+; 0.829 ; stepperMotor:claw|timer[30]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.152     ; 0.761      ;
+; 0.844 ; stepperMotor:claw|timer[25]    ; stepperMotor:claw|timer[25]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.972      ;
+; 0.848 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.976      ;
+; 0.848 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[27]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.976      ;
+; 0.848 ; stepperMotor:claw|timer[22]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.976      ;
+; 0.849 ; stepperMotor:claw|timer[11]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.977      ;
+; 0.849 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.977      ;
+; 0.851 ; stepperMotor:claw|timer[28]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.979      ;
+; 0.853 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[1]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.973      ;
+; 0.854 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.171      ;
+; 0.855 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.172      ;
+; 0.860 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.980      ;
+; 0.861 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.989      ;
+; 0.864 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.984      ;
+; 0.866 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.183      ;
+; 0.866 ; stepperMotor:claw|timer[29]    ; stepperMotor:claw|timer[29]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.994      ;
+; 0.866 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.183      ;
+; 0.866 ; stepperMotor:claw|timer[29]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.152     ; 0.798      ;
+; 0.867 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.184      ;
+; 0.868 ; stepperMotor:claw|timer[24]    ; stepperMotor:claw|timer[24]    ; clk          ; clk         ; 0.000        ; 0.044      ; 0.996      ;
+; 0.869 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.186      ;
+; 0.870 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.187      ;
+; 0.870 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.187      ;
+; 0.871 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[2]     ; clk          ; clk         ; 0.000        ; 0.036      ; 0.991      ;
+; 0.874 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.191      ;
+; 0.876 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|stepMotor[3] ; clk          ; clk         ; 0.000        ; 0.232      ; 1.192      ;
+; 0.878 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.195      ;
+; 0.881 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.198      ;
+; 0.884 ; stepperMotor:claw|timer[28]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.152     ; 0.816      ;
+; 0.885 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.234      ; 1.203      ;
+; 0.886 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.203      ;
+; 0.886 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.203      ;
+; 0.890 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.207      ;
+; 0.896 ; stepperMotor:claw|timer[26]    ; stepperMotor:claw|timer[26]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.024      ;
+; 0.900 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[15]    ; clk          ; clk         ; 0.000        ; 0.036      ; 1.020      ;
+; 0.904 ; stepperMotor:claw|timer[23]    ; stepperMotor:claw|timer[23]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.032      ;
+; 0.906 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.036      ; 1.026      ;
+; 0.911 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.228      ;
+; 0.915 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.232      ;
+; 0.916 ; stepperMotor:claw|timer[21]    ; stepperMotor:claw|timer[21]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.044      ;
+; 0.917 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[3]     ; clk          ; clk         ; 0.000        ; 0.036      ; 1.037      ;
+; 0.918 ; stepperMotor:claw|timer[16]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.046      ;
+; 0.920 ; stepperMotor:claw|timer[15]    ; stepperMotor:claw|timer[19]    ; clk          ; clk         ; 0.000        ; 0.234      ; 1.238      ;
+; 0.921 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.152     ; 0.853      ;
+; 0.922 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.239      ;
+; 0.923 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.234      ; 1.241      ;
+; 0.923 ; stepperMotor:claw|timer[1]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.240      ;
+; 0.931 ; stepperMotor:claw|timer[9]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.059      ;
+; 0.934 ; stepperMotor:claw|timer[0]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.251      ;
+; 0.936 ; stepperMotor:claw|timer[10]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.064      ;
+; 0.936 ; stepperMotor:claw|timer[7]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.253      ;
+; 0.937 ; stepperMotor:claw|timer[3]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.254      ;
+; 0.938 ; stepperMotor:claw|timer[4]     ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.255      ;
+; 0.942 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.258      ;
+; 0.943 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[10]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.259      ;
+; 0.943 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.232      ; 1.259      ;
+; 0.944 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.260      ;
+; 0.949 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[5]     ; clk          ; clk         ; 0.000        ; 0.036      ; 1.069      ;
+; 0.950 ; stepperMotor:claw|timer[4]     ; stepperMotor:claw|timer[9]     ; clk          ; clk         ; 0.000        ; 0.233      ; 1.267      ;
+; 0.951 ; stepperMotor:claw|timer[2]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.268      ;
+; 0.955 ; stepperMotor:claw|timer[26]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.152     ; 0.887      ;
+; 0.956 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[17]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.272      ;
+; 0.956 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[21]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.272      ;
+; 0.956 ; stepperMotor:claw|timer[5]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.273      ;
+; 0.957 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[20]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.273      ;
+; 0.959 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[16]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.275      ;
+; 0.960 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[26]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.276      ;
+; 0.960 ; stepperMotor:claw|timer[14]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.088      ;
+; 0.960 ; stepperMotor:claw|timer[6]     ; stepperMotor:claw|timer[12]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.277      ;
+; 0.961 ; stepperMotor:claw|timer[31]    ; stepperMotor:claw|timer[23]    ; clk          ; clk         ; 0.000        ; 0.232      ; 1.277      ;
+; 0.961 ; stepperMotor:claw|timer[8]     ; stepperMotor:claw|timer[11]    ; clk          ; clk         ; 0.000        ; 0.233      ; 1.278      ;
+; 0.967 ; stepperMotor:claw|timer[19]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.043      ; 1.094      ;
+; 0.967 ; stepperMotor:claw|timer[13]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.234      ; 1.285      ;
+; 0.967 ; stepperMotor:claw|timer[12]    ; stepperMotor:claw|timer[14]    ; clk          ; clk         ; 0.000        ; 0.045      ; 1.096      ;
+; 0.977 ; stepperMotor:claw|timer[17]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.045      ; 1.106      ;
+; 0.983 ; stepperMotor:claw|timer[27]    ; stepperMotor:claw|timer[28]    ; clk          ; clk         ; 0.000        ; 0.044      ; 1.111      ;
+; 0.983 ; stepperMotor:claw|timer[16]    ; stepperMotor:claw|timer[18]    ; clk          ; clk         ; 0.000        ; 0.045      ; 1.112      ;
+; 0.983 ; stepperMotor:claw|timer[18]    ; stepperMotor:claw|timer[22]    ; clk          ; clk         ; 0.000        ; 0.043      ; 1.110      ;
+; 0.991 ; stepperMotor:claw|timer[25]    ; stepperMotor:claw|timer[31]    ; clk          ; clk         ; 0.000        ; -0.152     ; 0.923      ;
++-------+--------------------------------+--------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'clk'                                                                ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                         ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk   ; Rise       ; clk                            ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|stepMotor[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[0]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[10]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[11]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[12]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[13]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[14]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[15]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[16]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[17]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[18]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[19]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[1]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[20]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[21]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[22]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[23]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[24]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[25]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[26]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[27]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[28]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[29]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[2]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[30]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[31]    ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[3]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[4]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[5]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[6]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[7]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[8]     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; stepperMotor:claw|timer[9]     ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|stepMotor[3] ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[10]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[11]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[12]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[14]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[16]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[17]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[18]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[19]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[20]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[21]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[22]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[23]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[24]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[25]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[26]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[27]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[28]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[29]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[30]    ;
+; -0.081 ; 0.103        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[9]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[13]    ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[15]    ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[4]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[5]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[6]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[7]     ;
+; -0.057 ; 0.127        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[8]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[0]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[1]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[2]     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[31]    ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; stepperMotor:claw|timer[3]     ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|stepMotor[3]|clk          ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[10]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[11]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[12]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[14]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[16]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[17]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[18]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[19]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[20]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[21]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[22]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[23]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[24]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[25]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[26]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[27]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[28]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[29]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[30]|clk             ;
+; 0.099  ; 0.099        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[9]|clk              ;
+; 0.120  ; 0.120        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; clk~input|o                    ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[13]|clk             ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[15]|clk             ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[4]|clk              ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[5]|clk              ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[6]|clk              ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[7]|clk              ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[8]|clk              ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[0]|clk              ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[1]|clk              ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[2]|clk              ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; claw|timer[31]|clk             ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 3.548 ; 3.628 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 3.548 ; 3.628 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 3.432 ; 3.509 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 3.432 ; 3.509 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -5.126   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -5.126   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -152.609 ; 0.0   ; 0.0      ; 0.0     ; -38.38              ;
+;  clk             ; -152.609 ; 0.000 ; N/A      ; N/A     ; -38.380             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 6.124 ; 6.124 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 6.124 ; 6.124 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; c_motor[*]  ; clk        ; 3.432 ; 3.509 ; Rise       ; clk             ;
+;  c_motor[3] ; clk        ; 3.432 ; 3.509 ; Rise       ; clk             ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; w_motor[3]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; w_motor[2]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; w_motor[1]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; w_motor[0]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; c_motor[3]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; c_motor[2]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; c_motor[1]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; c_motor[0]    ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; rst                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; rasp_on                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; obj_inSight             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; obj_isClose             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; w_motor[3]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; w_motor[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; w_motor[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; w_motor[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; c_motor[3]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.44e-09 V                   ; 2.38 V              ; -0.0145 V           ; 0.169 V                              ; 0.026 V                              ; 4.83e-10 s                  ; 4.71e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.44e-09 V                  ; 2.38 V             ; -0.0145 V          ; 0.169 V                             ; 0.026 V                             ; 4.83e-10 s                 ; 4.71e-10 s                 ; Yes                       ; Yes                       ;
+; c_motor[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; c_motor[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.44e-09 V                   ; 2.33 V              ; -0.00624 V          ; 0.185 V                              ; 0.097 V                              ; 2.82e-09 s                  ; 2.56e-09 s                  ; No                         ; Yes                        ; 2.32 V                      ; 4.44e-09 V                  ; 2.33 V             ; -0.00624 V         ; 0.185 V                             ; 0.097 V                             ; 2.82e-09 s                 ; 2.56e-09 s                 ; No                        ; Yes                       ;
+; c_motor[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.95e-09 V                   ; 2.38 V              ; -0.016 V            ; 0.22 V                               ; 0.025 V                              ; 3.06e-10 s                  ; 3.3e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 5.95e-09 V                  ; 2.38 V             ; -0.016 V           ; 0.22 V                              ; 0.025 V                             ; 3.06e-10 s                 ; 3.3e-10 s                  ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.45e-09 V                   ; 2.38 V              ; -0.0609 V           ; 0.148 V                              ; 0.095 V                              ; 2.82e-10 s                  ; 2.59e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.45e-09 V                  ; 2.38 V             ; -0.0609 V          ; 0.148 V                             ; 0.095 V                             ; 2.82e-10 s                 ; 2.59e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.61e-09 V                   ; 2.38 V              ; -0.00274 V          ; 0.141 V                              ; 0.006 V                              ; 4.7e-10 s                   ; 6.02e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.61e-09 V                  ; 2.38 V             ; -0.00274 V         ; 0.141 V                             ; 0.006 V                             ; 4.7e-10 s                  ; 6.02e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; w_motor[3]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; w_motor[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; w_motor[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; w_motor[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; c_motor[3]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.16e-07 V                   ; 2.35 V              ; -0.00832 V          ; 0.101 V                              ; 0.024 V                              ; 6.39e-10 s                  ; 6e-10 s                     ; Yes                        ; Yes                        ; 2.32 V                      ; 7.16e-07 V                  ; 2.35 V             ; -0.00832 V         ; 0.101 V                             ; 0.024 V                             ; 6.39e-10 s                 ; 6e-10 s                    ; Yes                       ; Yes                       ;
+; c_motor[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; c_motor[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.16e-07 V                   ; 2.33 V              ; -0.00349 V          ; 0.163 V                              ; 0.074 V                              ; 3.33e-09 s                  ; 3.14e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.16e-07 V                  ; 2.33 V             ; -0.00349 V         ; 0.163 V                             ; 0.074 V                             ; 3.33e-09 s                 ; 3.14e-09 s                 ; Yes                       ; Yes                       ;
+; c_motor[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.06e-06 V                   ; 2.36 V              ; -0.00724 V          ; 0.107 V                              ; 0.02 V                               ; 4.5e-10 s                   ; 4.25e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.06e-06 V                  ; 2.36 V             ; -0.00724 V         ; 0.107 V                             ; 0.02 V                              ; 4.5e-10 s                  ; 4.25e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.74e-07 V                   ; 2.36 V              ; -0.0201 V           ; 0.072 V                              ; 0.033 V                              ; 4.04e-10 s                  ; 3.29e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.74e-07 V                  ; 2.36 V             ; -0.0201 V          ; 0.072 V                             ; 0.033 V                             ; 4.04e-10 s                 ; 3.29e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.45e-07 V                   ; 2.35 V              ; -0.00643 V          ; 0.081 V                              ; 0.031 V                              ; 5.31e-10 s                  ; 7.59e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.45e-07 V                  ; 2.35 V             ; -0.00643 V         ; 0.081 V                             ; 0.031 V                             ; 5.31e-10 s                 ; 7.59e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; w_motor[3]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; w_motor[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; w_motor[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; w_motor[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; c_motor[3]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.71 V              ; -0.0317 V           ; 0.148 V                              ; 0.064 V                              ; 4.51e-10 s                  ; 4.15e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.71 V             ; -0.0317 V          ; 0.148 V                             ; 0.064 V                             ; 4.51e-10 s                 ; 4.15e-10 s                 ; No                        ; Yes                       ;
+; c_motor[2]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; c_motor[1]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.74e-08 V                   ; 2.64 V              ; -0.0117 V           ; 0.202 V                              ; 0.176 V                              ; 2.38e-09 s                  ; 2.22e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.74e-08 V                  ; 2.64 V             ; -0.0117 V          ; 0.202 V                             ; 0.176 V                             ; 2.38e-09 s                 ; 2.22e-09 s                 ; No                        ; Yes                       ;
+; c_motor[0]    ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 64225    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 64225    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Mar 12 23:56:28 2020
+Info: Command: quartus_sta robinho -c robinho
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'robinho.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -5.126
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -5.126      -152.609 clk 
+Info (332146): Worst-case hold slack is 0.343
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.343         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -36.000 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.460
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -4.460      -133.212 clk 
+Info (332146): Worst-case hold slack is 0.299
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.299         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -36.000 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.435
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.435       -70.732 clk 
+Info (332146): Worst-case hold slack is 0.179
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.179         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -38.380 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4622 megabytes
+    Info: Processing ended: Thu Mar 12 23:56:37 2020
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:03
+
+

@@ -1,0 +1,44 @@
+module stepperMotor(clk, dir, stepMotor); //dir - 0 sobe : 1 desce
+	input clk;
+	input dir; 				
+	output reg [0:3]stepMotor;
+	
+	parameter passo_tempo = 250000;
+	integer timer;
+	
+	always@(posedge clk)
+	begin
+		timer = timer + 1;
+		
+		case(dir)
+		0:
+		begin
+			if(timer < passo_tempo)
+				stepMotor[0:3]=4'b0011;
+			else if((timer > passo_tempo) && (timer < passo_tempo*2))
+				stepMotor[0:3]=4'b1001;
+			else if((timer > passo_tempo*2) && (timer < passo_tempo*3))
+				stepMotor[0:3]=4'b1100;
+			else if((timer > passo_tempo*3) && (timer < passo_tempo*4))
+				stepMotor[0:3]=4'b0110;
+			else if(timer > passo_tempo*4)
+				timer = 32'b0;
+		end
+		
+		1:
+		begin
+			if(timer < passo_tempo)
+				stepMotor[0:3]=4'b0110;
+			else if((timer > passo_tempo) && (timer < passo_tempo*2))
+				stepMotor[0:3]=4'b1100;
+			else if((timer > passo_tempo*2) && (timer < passo_tempo*3))
+				stepMotor[0:3]=4'b1001;
+			else if((timer > passo_tempo*3) && (timer < passo_tempo*4))
+				stepMotor[0:3]=4'b0011;
+			else if(timer > passo_tempo*4)
+				timer = 32'b0;
+		end
+		endcase
+	end
+	
+endmodule

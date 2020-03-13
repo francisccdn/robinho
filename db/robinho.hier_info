@@ -1,0 +1,60 @@
+|robinho
+rst => ~NO_FANOUT~
+clk => clk.IN1
+rasp_on => ~NO_FANOUT~
+obj_inSight => ~NO_FANOUT~
+obj_isClose => ~NO_FANOUT~
+w_motor[3] <= <VCC>
+w_motor[2] <= <VCC>
+w_motor[1] <= <VCC>
+w_motor[0] <= <VCC>
+c_motor[3] <= stepperMotor:claw.stepMotor
+c_motor[2] <= <GND>
+c_motor[1] <= <GND>
+c_motor[0] <= <GND>
+
+
+|robinho|stepperMotor:claw
+clk => stepMotor[3]~reg0.CLK
+clk => stepMotor[2]~reg0.CLK
+clk => stepMotor[1]~reg0.CLK
+clk => stepMotor[0]~reg0.CLK
+clk => timer[0].CLK
+clk => timer[1].CLK
+clk => timer[2].CLK
+clk => timer[3].CLK
+clk => timer[4].CLK
+clk => timer[5].CLK
+clk => timer[6].CLK
+clk => timer[7].CLK
+clk => timer[8].CLK
+clk => timer[9].CLK
+clk => timer[10].CLK
+clk => timer[11].CLK
+clk => timer[12].CLK
+clk => timer[13].CLK
+clk => timer[14].CLK
+clk => timer[15].CLK
+clk => timer[16].CLK
+clk => timer[17].CLK
+clk => timer[18].CLK
+clk => timer[19].CLK
+clk => timer[20].CLK
+clk => timer[21].CLK
+clk => timer[22].CLK
+clk => timer[23].CLK
+clk => timer[24].CLK
+clk => timer[25].CLK
+clk => timer[26].CLK
+clk => timer[27].CLK
+clk => timer[28].CLK
+clk => timer[29].CLK
+clk => timer[30].CLK
+clk => timer[31].CLK
+dir => Decoder0.IN0
+stepMotor[3] <= stepMotor[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stepMotor[2] <= stepMotor[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stepMotor[1] <= stepMotor[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+stepMotor[0] <= stepMotor[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
