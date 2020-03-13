@@ -4,8 +4,11 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <raspicam/raspicam_cv.h>
 #include <pigpio.h>
+#include <unistd.h>
 #include <string>
 #include <iostream>
+#include <chrono>
+#include "Robot.h"
 
 using namespace cv;
 using namespace std;
@@ -49,24 +52,8 @@ int main(int argc, char **argv)
     Point2f center;
     float radius;
 
-    // Pi GPIO pins
-    const int w_motor[4] = {35, 36, 37, 38};
-    const int c_motor[4] = {7, 11, 13, 15};
-    const int rst = 22;
-
-    if(gpioInitialise() < 0)
-        cerr << "GPIO init failed." << endl;
-    else
-    { // Pi GPIO setup
-        for(int i = 0; i < 4; i++)
-        {
-            gpioSetMode(w_motor[i], PI_OUTPUT);
-            gpioSetMode(c_motor[i], PI_OUTPUT);
-        }
-        gpioSetMode(rst, PI_INPUT);
-
-        for(int w : w_motor) gpioWrite(w, 1);
-    }
+    // Objeto do robo
+    Robot robinho(35, 36, 37, 38, 13, 15, 16, 18);
 
     while(1)
     {
@@ -90,8 +77,9 @@ int main(int argc, char **argv)
 
         // Encontra o contorno do Objetos
         findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
+        bool seeingObjects = (contours.size() > 0) ? true : false; 
 
-        if(contours.size() > 0)
+        if(seeingObjects)
         { // Se algum objeto foi encontrado
             obj = findBestContour(contours);
             minEnclosingCircle(obj, center, radius);
@@ -100,30 +88,33 @@ int main(int argc, char **argv)
             {
                 if(catch_radius[0] <= radius && radius >= catch_radius[1])
                 {
-                    gpioWrite(PIN_DISTANCE, 1); // Tá na distancia para pegar com a garra
+                    robinho.grab(); // Tá na distancia para pegar com a garra
                 }
-            }
 
-            if(lim_front[0] <= center.x && center.x >= lim_front[1])
-            {
-                gpioWrite(PIN_SIGHT, 1); // Objeto está em frente
+                if(lim_front[0] <= center.x && center.x >= lim_front[1])
+                {
+                    robinho.foward();
+                }
+                else if(center.x < lim_front[0])
+                {
+                    robinho.turn(0); // Objeto esta a esquerda
+                }
+                else if(lim_front[1] < center.x)
+                {
+                    robinho.turn(1); // Objeto esta a direita
+                }  
             }
             else
             {
-                gpioWrite(PIN_SIGHT, 0); // Objeto não está em frente
-            }          
+                seeingObjects = false;
+            }
+                        
         }
-        else
+        if(!seeingObjects)
         {
-           gpioWrite(PIN_SIGHT, 0); // Objeto não está em frente
-        }
-
-        // Reinicia os pinos se detectar reset
-        if(gpioRead(PIN_RST))
-        {
-            gpioWrite(PIN_ON, 1);
-            gpioWrite(PIN_SIGHT, 0);
-            gpioWrite(PIN_DISTANCE, 0);
+           robinho.foward();
+           sleep(5);
+           robinho.turn(1);
         }
 
         // Fecha o programa ao apertar qualquer tecla
@@ -134,8 +125,7 @@ int main(int argc, char **argv)
         }
     }
 
-    gpioWrite(PIN_ON, 0);
-    gpioTerminate();
+    delete robinho;
     std::cout << "Ending program." << endl;
     
     return 0;

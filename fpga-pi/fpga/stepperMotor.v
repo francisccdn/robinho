@@ -3,7 +3,7 @@ module stepperMotor(clk, dir, stepMotor); //dir - 0 up : 1 down : 2 stop
 	input dir; 				
 	output reg [0:3]stepMotor;
 	
-	parameter step_time = 250000;
+	parameter step_time = 250000; // 5ms
 	integer timer;
 	
 	always@(posedge clk)
