@@ -2,7 +2,10 @@
 
 Car::Car(int w1, int w2, int w3, int w4)
 {
-    gpioInitialise();
+    if(gpioInitialise() < 0)
+        on = false;
+    else
+        on = true;
     
     wheels[0] = w1;
     wheels[1] = w2;
@@ -20,6 +23,12 @@ Car::Car(int w1, int w2, int w3, int w4)
 Car::~Car()
 {
     gpioTerminate();
+}
+
+void Car::isOn()
+{
+    if(!on)
+        throw gpioInitException();
 }
 
 void Car::foward()

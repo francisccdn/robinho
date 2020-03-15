@@ -57,6 +57,17 @@ int main(int argc, char **argv)
 
     // Objeto do robo
     Robot *robinho = new Robot(35, 36, 37, 38, 13, 15, 16, 18);
+    try
+    {
+        robinho->isOn();
+        cout << "gpio initialized" << endl;
+    }
+    catch(gpioInitException& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 2;
+    }
+    
 
     while(1)
     {
