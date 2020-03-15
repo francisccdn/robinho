@@ -7,8 +7,9 @@
 #include <string>
 #include <iostream>
 
+#define PIN_OFF 40
 #define PIN_RST 7
-#define PIN_ON 40
+#define PIN_ISON 32
 #define PIN_SIGHT 35
 #define PIN_DISTANCE 37
 
@@ -48,11 +49,11 @@ int main(int argc, char **argv)
     else
     { // Pi GPIO setup
         gpioSetMode(PIN_RST, PI_INPUT);
-        gpioSetMode(PIN_ON, PI_OUTPUT);
+        gpioSetMode(PIN_ISON, PI_OUTPUT);
         gpioSetMode(PIN_SIGHT, PI_OUTPUT);
         gpioSetMode(PIN_DISTANCE, PI_OUTPUT);
 
-        gpioWrite(PIN_ON, 1);
+        gpioWrite(PIN_ISON, 1);
         gpioWrite(PIN_SIGHT, 0);
         gpioWrite(PIN_DISTANCE, 0);
     }
@@ -84,7 +85,7 @@ int main(int argc, char **argv)
         cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV); //Converte a imagem lida em BRG para HSV
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], redUpper[2]), frameMask);
+        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
         erode(frameMask, frameMask, NULL);
         dilate(frameMask, frameMask, NULL);
 
@@ -121,22 +122,19 @@ int main(int argc, char **argv)
         // Reinicia os pinos se detectar reset
         if(gpioRead(PIN_RST))
         {
-            gpioWrite(PIN_ON, 1);
+            gpioWrite(PIN_ISON, 1);
             gpioWrite(PIN_SIGHT, 0);
             gpioWrite(PIN_DISTANCE, 0);
         }
 
-        // Fecha o programa ao apertar qualquer tecla
-        if(waitKey(30) != -1)
-        {
-            cap.release();
-            break;
-        }
+        // Fecha o programa ao apertar botao de desligar
+        if(gpioRead(PIN_OFF) == 0) break;
     }
 
-    gpioWrite(PIN_ON, 0);
+    cap.release();
+    gpioWrite(PIN_ISON, 0);
     gpioTerminate();
-    std::cout << "Ending program." << endl;
+    system("shutdown 1");
     
     return 0;
 }

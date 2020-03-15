@@ -76,7 +76,7 @@ int main(int argc, char **argv)
         frame = frameBRG; //Deletar na versao final
 
         if(frameBRG.empty())
-        {//TODO - Fazer disso uma exception
+        {
             cerr << "Empty frame." << endl;
             break;
         }
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
         cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV); //Converte a imagem lida em BRG para HSV
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], redUpper[2]), frameMask);
+        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
         erode(frameMask, frameMask, NULL);
         dilate(frameMask, frameMask, NULL);
 
@@ -122,7 +122,7 @@ int main(int argc, char **argv)
             {
                 // TODO - Mandar pra fpga q n tem objeto em vista 
             }
-  */          
+*/          
         }
         else
         {
