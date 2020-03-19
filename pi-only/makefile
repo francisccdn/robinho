@@ -1,5 +1,5 @@
 all:
-	g++ -Wall -pthread *.cpp -o output `pkg-config --cflags --libs opencv` -I/usr/local/include/ -lraspicam -lraspicam_cv -lpigpio -lrt
+	g++ -Wall -pthread *.cpp -o run `pkg-config --cflags --libs opencv` -I/usr/local/include/ -lraspicam -lraspicam_cv -lpigpio -lrt
 
 #CXX ?= g ++
 
