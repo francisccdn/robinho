@@ -15,7 +15,7 @@ pid = p.pid
 # the function called to shut down the RPI
 def shutdown():
 	os.kill(pid, signal.SIGINT) # ctrl c on actual code
-	os.system("shutdown 1")     # shuts pi down in 1 min
+	# os.system("shutdown 1")     # shuts pi down in 1 min
 
 btn = Button(offGPIO, hold_time=holdTime)
 btn.when_held = shutdown
