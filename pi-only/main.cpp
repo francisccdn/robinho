@@ -1,7 +1,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgproc.hpp>
 #include <raspicam/raspicam_cv.h>
 #include <pigpio.h>
 #include <unistd.h>
@@ -86,11 +86,12 @@ int main(int argc, char **argv)
 
         // Filtrar a imagem
         inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
-        erode(frameMask, frameMask, NULL);
-        dilate(frameMask, frameMask, NULL);
+        InputArray kernel = getStructuringElement(MORPH_RECT, Size2i(3,3));
+        erode(frameMask, frameMask, kernel);
+        dilate(frameMask, frameMask, kernel);
 
         // Encontra o contorno do Objetos
-        findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
+        findContours(frameMask, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
         bool seeingObjects = (contours.size() > 0) ? true : false; 
 
         if(seeingObjects)

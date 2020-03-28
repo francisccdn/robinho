@@ -2,6 +2,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/imgproc.hpp>
+#include <raspicam/raspicam_cv.h>
 #include <string>
 #include <iostream>
 
@@ -22,9 +23,9 @@ vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
 int main(int argc, char **argv)
 {
     // Abrir a camera
-    VideoCapture cap = VideoCapture(0);
+    raspicam::RaspiCam_Cv cap;
 
-    if(!cap.isOpened())
+    if(!cap.open())
     {
         cerr << "Couldn't open camera." << endl;
         return 1;
@@ -47,14 +48,14 @@ int main(int argc, char **argv)
     int colorLower[3] = {0, 0, 0}, colorUpper[3] = {179, 255, 255};
 
     // Barrinhas para escolher uma cor
-    namedWindow("Control", WINDOW_AUTOSIZE);
+/*  namedWindow("Control", WINDOW_AUTOSIZE);
     createTrackbar("LowH", "Control", &colorLower[0], 179); //Hue (0 - 179)
     createTrackbar("HighH", "Control", &colorUpper[0], 179);
     createTrackbar("LowS", "Control", &colorLower[1], 255); //Saturation (0 - 255)
     createTrackbar("HighS", "Control", &colorUpper[1], 255);
     createTrackbar("LowV", "Control", &colorLower[2], 255);//Value (0 - 255)
     createTrackbar("HighV", "Control", &colorUpper[2], 255);
-
+*/
     // Parametros para deteccao do alvo
     const float min_radius = 0.01; // Raio minimo do objeto para ser considerado
     const float catch_radius[2] = {45, 60}; // Raio quando a distancia for a de ser pego pela garra
@@ -69,7 +70,8 @@ int main(int argc, char **argv)
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
-        cap.read(frameBRG);
+        cap.grab();
+        cap.retrieve(frameBRG);
         frame = frameBRG; //Deletar na versao final
 
         if(frameBRG.empty())
@@ -82,7 +84,7 @@ int main(int argc, char **argv)
         cvtColor(frameBRG, frameHSV, COLOR_BGR2HSV); //Converte a imagem lida em BRG para HSV
 
         // Filtrar a imagem
-        inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
+        inRange(frameHSV, Scalar(pinkLower[0], pinkLower[1], pinkLower[2]), Scalar(pinkUpper[0], pinkUpper[1], pinkUpper[2]), frameMask);
         InputArray kernel = getStructuringElement(MORPH_RECT, Size2i(3,3));
         erode(frameMask, frameMask, kernel);
         dilate(frameMask, frameMask, kernel);
