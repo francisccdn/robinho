@@ -1,8 +1,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <raspicam/raspicam_cv.h>
+#include <opencv2/imgproc.hpp>
 #include <string>
 #include <iostream>
 
@@ -23,9 +22,9 @@ vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
 int main(int argc, char **argv)
 {
     // Abrir a camera
-    raspicam::RaspiCam_Cv cap;
+    VideoCapture cap = VideoCapture(0);
 
-    if(!cap.open())
+    if(!cap.isOpened())
     {
         cerr << "Couldn't open camera." << endl;
         return 1;
@@ -70,8 +69,7 @@ int main(int argc, char **argv)
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
-        cap.grab();
-        cap.retrieve(frameBRG);
+        cap.read(frameBRG);
         frame = frameBRG; //Deletar na versao final
 
         if(frameBRG.empty())
@@ -85,15 +83,16 @@ int main(int argc, char **argv)
 
         // Filtrar a imagem
         inRange(frameHSV, Scalar(colorLower[0], colorLower[1], colorLower[2]), Scalar(colorUpper[0], colorUpper[1], colorUpper[2]), frameMask);
-        erode(frameMask, frameMask, NULL);
-        dilate(frameMask, frameMask, NULL);
+        InputArray kernel = getStructuringElement(MORPH_RECT, Size2i(3,3));
+        erode(frameMask, frameMask, kernel);
+        dilate(frameMask, frameMask, kernel);
 
         // Exibir captura da camera com filtros -- Deletar na versao final
         namedWindow("Mask", WINDOW_AUTOSIZE);
         imshow("Mask", frameMask);
 
         // Encontra o contorno do Objetos
-        findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
+        findContours(frameMask, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE); //pode dar problema pela versao
 
         if(contours.size() > 0)
         { // Se algum objeto foi encontrado
