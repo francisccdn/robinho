@@ -2,13 +2,13 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/imgproc.hpp>
-#include <raspicam/raspicam_cv.h>
-#include <pigpio.h>
+//#include <raspicam/raspicam_cv.h>
+//#include <pigpio.h>
 #include <unistd.h>
 #include <string>
 #include <iostream>
 #include <chrono>
-#include "Robot.h"
+//#include "Robot.h"
 
 using namespace cv;
 using namespace std;
@@ -27,19 +27,20 @@ vector<cv::Point> findBestContour(std::vector<std::vector<cv::Point>> v)
 int main(int argc, char **argv)
 {
     // Abrir a camera
-    raspicam::RaspiCam_Cv cap;
+    VideoCapture cap;
+    cap.open(0);
 
-    if(!cap.open())
+    if(!cap.isOpened())
     {
         cerr << "Couldn't open camera." << endl;
         return 1;
     }
 
     // Objetos para img em BRG e em HSV
-    Mat frameBRG, frameHSV, frameMask;    
+    Mat frame, frameBRG, frameHSV, frameMask;    
 
     // Range da cor que vai ser detectada
-    const int colorLower[3] = {135, 120, 80}, colorUpper[3] = {175, 255, 255}; /*Rosa*/
+    const int colorLower[3] = {130, 60, 100}, colorUpper[3] = {175, 255, 255}; /*Rosa*/
 
     // Parametros para deteccao do alvo
     const float min_radius = 20; // Raio minimo do objeto para ser considerado
@@ -53,7 +54,7 @@ int main(int argc, char **argv)
     float radius;
 
     // Objeto do robo
-    Robot *robinho = new Robot(35, 36, 37, 38, 13, 15, 16, 18);
+    /*Robot *robinho = new Robot(35, 36, 37, 38, 13, 15, 16, 18);
     try
     {
         robinho->isOn();
@@ -63,14 +64,14 @@ int main(int argc, char **argv)
     {
         std::cerr << e.what() << '\n';
         return 2;
-    }
+    }*/
     
 
     while(1)
     {
         // Jogar frames da camera para Mat frameBRG
-        cap.grab();
-        cap.retrieve(frameBRG);
+        cap.read(frameBRG);
+        frame = frameBRG;
 
         if(frameBRG.empty())
         {
@@ -87,32 +88,43 @@ int main(int argc, char **argv)
         dilate(frameMask, frameMask, NULL);
 
         // Encontra o contorno do Objetos
-        findContours(frameMask, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+        findContours(frameMask, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
         bool seeingObjects = (contours.size() > 0) ? true : false; 
 
         if(seeingObjects)
         { // Se algum objeto foi encontrado
             obj = findBestContour(contours);
             minEnclosingCircle(obj, center, radius);
+
+            string center_str = "Center: X = " + to_string(center.x) + " Y  = " + to_string(center.y);
+            string radius_str = "Radius: " + to_string(radius);
             
             if(radius > min_radius)
             {
+                circle(frame, center, radius, Scalar(0, 255, 255), 2);
+                putText(frame, center_str, Point(30, 30), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0)); 
+                putText(frame, radius_str, Point(30, 40), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 0));
+
                 if(catch_radius[0] <= radius && radius <= catch_radius[1])
                 {
-                    robinho->grab(); // Tá na distancia para pegar com a garra
+                    //robinho->grab(); // Tá na distancia para pegar com a garra
+                    cout << "Ativar garra (sleep) \t robinho->grab()" << endl;
                 }
 
                 if(lim_front[0] <= center.x && center.x <= lim_front[1])
                 {
-                    robinho->foward();
+                    //robinho->foward();
+                    cout << "Andar para frente \t robinho->foward()" << endl;
                 }
                 else if(center.x < lim_front[0])
                 {
-                    robinho->turn(LEFT); // Objeto esta a esquerda
+                    //robinho->turn(LEFT); // Objeto esta a esquerda
+                    cout << "Virar para a esquerda \t robinho->turn(LEFT)" << endl;
                 }
                 else if(lim_front[1] < center.x)
                 {
-                    robinho->turn(RIGHT); // Objeto esta a direita
+                    //robinho->turn(RIGHT); // Objeto esta a direita
+                    cout << "Virar para a direita \t robinho->turn(RIGT)" << endl;
                 }  
             }
             else
@@ -123,18 +135,23 @@ int main(int argc, char **argv)
         }
         if(!seeingObjects)
         {
-           robinho->search();
+           //robinho->search();
+            cout << "Busca objeto aleatoriamente \t robinho->search()" << endl;
         }
 
+        // Exibir captura da camera
+        namedWindow("Cam input", WINDOW_AUTOSIZE);
+        imshow("Cam input", frame);
+
         // Fecha o programa ao apertar qualquer tecla
-        if(waitKey(30) != -1)
+        if(waitKey(30) != 255)
         {
             cap.release();
             break;
         }
     }
 
-    delete robinho;
+    //delete robinho;
     std::cout << "Ending program." << endl;
     
     return 0;

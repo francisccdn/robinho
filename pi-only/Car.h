@@ -3,6 +3,12 @@
 #include <pigpio.h>
 #include "gpioInitException.h"
 
+enum Directions
+{
+    LEFT = 0,
+    RIGHT = 1
+};
+
 class Car
 {
 private:
