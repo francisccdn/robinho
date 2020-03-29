@@ -136,7 +136,7 @@ int main(int argc, char **argv)
         if(!seeingObjects)
         {
            //robinho->search();
-            cout << "Busca objeto aleatoriamente \t robinho->search()" << endl;
+            cout << "Busca aleatoria \t robinho->search()" << endl;
         }
 
         // Exibir captura da camera
